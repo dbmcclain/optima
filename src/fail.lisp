@@ -24,6 +24,7 @@ continues at the next pattern."
                          ;             ,form))
                          collect `(return-from ,block
                                     (symbol-macrolet ((%fail (go ,tag)))
+                                      (declare (ignoreable %fail))
                                       ,form))
                          collect tag)
                  (return-from ,block ,(car (last forms)))))))))
